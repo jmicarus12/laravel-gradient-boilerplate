@@ -33,7 +33,7 @@ See [CREDITS.md](CREDITS.md).
 ## Installation
 
 ```bash
-git clone <this-repo-url> my-project
+git clone git@github.com:jmicarus12/laravel-gradient-boilerplate.git my-project
 cd my-project
 
 # 1. PHP dependencies and environment
