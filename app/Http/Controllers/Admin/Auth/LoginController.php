@@ -1,0 +1,62 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Auth;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
+
+/**
+ * Admin login. Same flow as the user LoginController, but on the "admin" guard —
+ * and because the admin area has its own session (config/areas.php), logging in
+ * or out here never touches a user session in the same browser.
+ */
+class LoginController extends Controller
+{
+    public function create(): View
+    {
+        return view('admin.auth.login');
+    }
+
+    public function store(LoginRequest $request): RedirectResponse
+    {
+        $request->authenticate('admin');
+
+        $request->session()->regenerate();
+
+        $request->user('admin')->forceFill([
+            'last_login_at' => now(),
+            'last_login_ip' => $request->ip(),
+        ])->saveQuietly();
+
+        return redirect()->intended(route('admin.dashboard'));
+    }
+
+    /** GET /admin/logout — typed in the address bar. Asks first; the button POSTs to destroy(). */
+    public function confirm(Request $request): RedirectResponse|View
+    {
+        if (! $account = Auth::guard('admin')->user()) {
+            return redirect()->route('admin.login');
+        }
+
+        return view('auth.logout', [
+            'account' => $account,
+            'action' => route('admin.logout'),
+            'cancel' => route('admin.dashboard'),
+        ]);
+    }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        Auth::guard('admin')->logout();
+
+        // Only the admin session is thrown away — it is a different session from the user's.
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('admin.login');
+    }
+}

@@ -1,0 +1,228 @@
+// =============================================================================
+//  Brand applied to the layout + small additions for the boilerplate.
+// =============================================================================
+
+:root,
+[data-bs-theme='light'] {
+  --bs-body-bg: #{$brand-body-bg};
+  --bs-body-bg-rgb: #{to-rgb($brand-body-bg)};
+  --bs-body-font-family: '#{$brand-font}', sans-serif;
+  --pc-header-background: linear-gradient(to right, #{$brand-header-from}, #{$brand-header-to});
+  --pc-sidebar-background: #171311;
+  --pc-sidebar-color: #F8F3F0;
+  --pc-sidebar-color-rgb: 245, 245, 245;
+  --pc-sidebar-submenu-border-color: #453832;
+  --pc-sidebar-caption-color: #E7D8D1;
+  --pc-sidebar-active-color: #{$brand-primary};
+  --pc-sidebar-active-bg: #{rgba($brand-primary, 0.16)};
+}
+
+// Sidebar section captions read as written ("Access"), not forced lowercase
+.pc-sidebar .pc-caption label {
+  text-transform: none;
+}
+
+// Brand logo text in sidebar/header
+.b-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+
+  .b-logo {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #{$brand-header-to}, #{$brand-primary});
+    color: #fff;
+    font-size: 1.2rem;
+  }
+
+  .b-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--pc-heading-color);
+    white-space: nowrap;
+  }
+}
+
+.pc-header .b-brand .b-title {
+  color: #fff;
+}
+
+// Header icon buttons (sidebar toggle, theme toggle, user menu)
+.pc-header .pc-head-link {
+  color: rgba(255, 255, 255, 0.9);
+
+  i {
+    font-size: 1.25rem;
+  }
+}
+
+.pc-header .user-initials {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+// User area: top navigation layout (no sidebar)
+.pc-header.pc-header-top .m-header {
+  width: auto;
+}
+
+.pc-container.no-sidebar {
+  margin-left: 0;
+
+  .pc-content {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+}
+
+.pc-footer.no-sidebar {
+  margin-left: 0;
+}
+
+// Guest (login / register) pages
+.auth-main.v1 {
+  background: linear-gradient(135deg, #{$brand-header-from}, #{$brand-header-to});
+}
+
+.auth-main.v1 .auth-form .card {
+  border: 0;
+}
+
+// Theme toggle shows the icon for the current mode
+[data-theme-toggle] .theme-icon {
+  display: none;
+}
+
+[data-theme-pref='light'] [data-theme-toggle] .theme-icon-light,
+[data-theme-pref='dark'] [data-theme-toggle] .theme-icon-dark,
+[data-theme-pref='auto'] [data-theme-toggle] .theme-icon-auto {
+  display: inline-block;
+}
+
+// Text links in the header (user top bar): the template's head links are 44px icon squares
+.pc-header .pc-head-link.pc-head-text {
+  width: auto;
+  padding: 0 0.75rem;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+// Guest page: stack brand, card and toggle vertically
+.auth-main.v1 .auth-form .auth-stack {
+  width: 100%;
+  max-width: 400px;
+
+  .card {
+    max-width: none;
+  }
+
+  .b-brand .b-title {
+    color: #fff;
+  }
+
+  .pc-head-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.2rem;
+  }
+}
+
+// Sidebar: main menu scrolls, "pinned" menu (config/menu.php) sticks to the bottom
+.pc-sidebar .navbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .navbar-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+  }
+}
+
+.pc-sidebar-pinned {
+  flex: none;
+  max-height: 50%;
+  overflow-y: auto;
+  padding: 6px 0 10px;
+  border-top: 1px solid var(--pc-sidebar-submenu-border-color);
+  background: inherit;
+}
+
+.ui-pagination .pagination {
+  margin-bottom: 0;
+}
+
+
+// Sunset Orange details: orange accents, charcoal sidebar/header, high-contrast actions.
+:root, [data-bs-theme='light'] {
+  --bs-primary: #FF6B35;
+  --bs-primary-rgb: 255, 107, 53;
+  --bs-link-color: #A83F1D;
+  --bs-link-hover-color: #7A2D16;
+  --pc-header-color: #FFFFFF;
+}
+
+.btn-primary {
+  --bs-btn-color: #000000;
+  --bs-btn-bg: #FF6B35;
+  --bs-btn-border-color: #FF6B35;
+  --bs-btn-hover-color: #000000;
+  --bs-btn-hover-bg: #E85A2A;
+  --bs-btn-hover-border-color: #E85A2A;
+  --bs-btn-active-color: #000000;
+  --bs-btn-active-bg: #C94A22;
+  --bs-btn-active-border-color: #C94A22;
+  --bs-btn-disabled-color: #000000;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #A83F1D;
+  --bs-btn-border-color: #D95428;
+  --bs-btn-hover-color: #000000;
+  --bs-btn-hover-bg: #FF6B35;
+  --bs-btn-hover-border-color: #FF6B35;
+  --bs-btn-active-color: #000000;
+  --bs-btn-active-bg: #FF6B35;
+  --bs-btn-active-border-color: #FF6B35;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: #FF6B35;
+  box-shadow: 0 0 0 .2rem rgba(255, 107, 53, .22);
+}
+
+.form-check-input:checked {
+  background-color: #D95428;
+  border-color: #D95428;
+}
+
+.pc-sidebar { background: #171311; }
+.pc-sidebar .pc-link { color: #F5F5F5; }
+.pc-sidebar .pc-link:hover, .pc-sidebar .pc-link:focus { color: #FF6B35; }
+.pc-sidebar .pc-item.active > .pc-link,
+.pc-sidebar .pc-item.pc-trigger > .pc-link { color: #FF6B35; background: rgba(255, 107, 53, .14); }
+.pc-sidebar .pc-caption, .pc-sidebar .pc-caption span:not(.badge) { color: #D4D4D4; }
+.pc-sidebar .pc-caption:after { background: #333333; }
+.pc-header { background: #171311; }
+.pc-header .pc-head-link:hover, .pc-header .pc-head-link:focus { color: #FF6B35; }
+.b-brand .b-logo { background: #FF6B35; color: #000000; }
+.auth-main.v1 { background: linear-gradient(135deg, #000000, #292321); }
+.badge.bg-primary { color: #000000 !important; }

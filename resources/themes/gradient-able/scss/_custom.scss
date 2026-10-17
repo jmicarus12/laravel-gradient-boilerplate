@@ -1,0 +1,167 @@
+// =============================================================================
+//  Brand applied to the layout + small additions for the boilerplate.
+// =============================================================================
+
+:root,
+[data-bs-theme='light'] {
+  --bs-body-bg: #{$brand-body-bg};
+  --bs-body-bg-rgb: #{to-rgb($brand-body-bg)};
+  --bs-body-font-family: '#{$brand-font}', sans-serif;
+  --pc-header-background: linear-gradient(to right, #{$brand-header-from}, #{$brand-header-to});
+  --pc-sidebar-background: #{$brand-surface};
+  --pc-sidebar-active-color: #{$brand-primary};
+  --pc-sidebar-active-bg: #{rgba($brand-primary, 0.08)};
+}
+
+// Sidebar section captions read as written ("Access"), not forced lowercase
+.pc-sidebar .pc-caption label {
+  text-transform: none;
+}
+
+// Brand logo text in sidebar/header
+.b-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+
+  .b-logo {
+    display: inline-grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #{$brand-header-to}, #{$brand-primary});
+    color: #fff;
+    font-size: 1.2rem;
+  }
+
+  .b-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--pc-heading-color);
+    white-space: nowrap;
+  }
+}
+
+.pc-header .b-brand .b-title {
+  color: #fff;
+}
+
+// Header icon buttons (sidebar toggle, theme toggle, user menu)
+.pc-header .pc-head-link {
+  color: rgba(255, 255, 255, 0.9);
+
+  i {
+    font-size: 1.25rem;
+  }
+}
+
+.pc-header .user-initials {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+// User area: top navigation layout (no sidebar)
+.pc-header.pc-header-top .m-header {
+  width: auto;
+}
+
+.pc-container.no-sidebar {
+  margin-left: 0;
+
+  .pc-content {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+}
+
+.pc-footer.no-sidebar {
+  margin-left: 0;
+}
+
+// Guest (login / register) pages
+.auth-main.v1 {
+  background: linear-gradient(135deg, #{$brand-header-from}, #{$brand-header-to});
+}
+
+.auth-main.v1 .auth-form .card {
+  border: 0;
+}
+
+// Theme toggle shows the icon for the current mode
+[data-theme-toggle] .theme-icon {
+  display: none;
+}
+
+[data-theme-pref='light'] [data-theme-toggle] .theme-icon-light,
+[data-theme-pref='dark'] [data-theme-toggle] .theme-icon-dark,
+[data-theme-pref='auto'] [data-theme-toggle] .theme-icon-auto {
+  display: inline-block;
+}
+
+// Text links in the header (user top bar): the template's head links are 44px icon squares
+.pc-header .pc-head-link.pc-head-text {
+  width: auto;
+  padding: 0 0.75rem;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+// Guest page: stack brand, card and toggle vertically
+.auth-main.v1 .auth-form .auth-stack {
+  width: 100%;
+  max-width: 400px;
+
+  .card {
+    max-width: none;
+  }
+
+  .b-brand .b-title {
+    color: #fff;
+  }
+
+  .pc-head-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.2rem;
+  }
+}
+
+// Sidebar: main menu scrolls, "pinned" menu (config/menu.php) sticks to the bottom
+.pc-sidebar .navbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .navbar-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
+  }
+}
+
+.pc-sidebar-pinned {
+  flex: none;
+  max-height: 50%;
+  overflow-y: auto;
+  padding: 6px 0 10px;
+  border-top: 1px solid var(--pc-sidebar-submenu-border-color);
+  background: inherit;
+}
+
+.ui-pagination .pagination {
+  margin-bottom: 0;
+}

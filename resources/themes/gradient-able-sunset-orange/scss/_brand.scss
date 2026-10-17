@@ -1,0 +1,49 @@
+// =============================================================================
+//  SUNSET ORANGE — brand palette
+//  Warm orange palette preset, separate from the 8 Group black-and-gold palette.
+// =============================================================================
+
+// Brand color: primary actions, links, active menu states, focus rings.
+$brand-primary: #FF6B35;
+
+// Warm charcoal header and brand accents.
+$brand-header-from: #171311;
+$brand-header-to: #292321;
+
+// Light mode surfaces
+$brand-body-bg: #F3F4F6;
+$brand-surface: #FFFFFF;
+
+// Dark mode surfaces
+$brand-dark-body-bg: #171311;
+$brand-dark-surface: #292321;
+$brand-dark-border: #453832;
+$brand-dark-text: #E5E5E5;
+$brand-dark-heading: #FFFFFF;
+
+// Typography (loaded via @fontsource in js/app.js)
+$brand-font: 'Poppins';
+
+// Gradient Able derives Bootstrap's primary palette from the brand gold.
+$blue: $brand-primary;
+$blue-100: tint-color($blue, 80%);
+$blue-200: tint-color($blue, 60%);
+$blue-300: tint-color($blue, 40%);
+$blue-400: tint-color($blue, 20%);
+$blue-500: $blue;
+$blue-600: shade-color($blue, 20%);
+$blue-700: shade-color($blue, 40%);
+$blue-800: shade-color($blue, 60%);
+$blue-900: shade-color($blue, 80%);
+
+// Bootstrap dark-mode palette. Gold remains readable on dark surfaces.
+$body-bg-dark: $brand-dark-body-bg;
+$body-color-dark: $brand-dark-text;
+$body-emphasis-color-dark: $brand-dark-heading;
+$body-secondary-bg-dark: $brand-dark-surface;
+$body-tertiary-bg-dark: mix($brand-dark-surface, $brand-dark-body-bg, 50%);
+$border-color-dark: $brand-dark-border;
+$headings-color-dark: $brand-dark-heading;
+$primary-text-emphasis-dark: #FFB08C;
+$link-color-dark: #FF9A70;
+$link-hover-color-dark: #FFC0A6;

@@ -1,0 +1,75 @@
+// =============================================================================
+//  Gradient Able theme — entry point
+//  Template: Gradient Able by CodedThemes (MIT) — see ../LICENSE
+//  vendor/ holds the template's Sass, kept as close to upstream as possible
+//  (local edits are marked with "[boilerplate]").
+// =============================================================================
+
+// 1. Settings: Bootstrap defaults → template → our brand
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'vendor/settings/color-variables';
+@import 'brand';
+@import 'vendor/settings/theme-variables';
+@import 'vendor/settings/bootstrap-variables';
+@import 'bootstrap/scss/variables-dark'; // after the brand so dark colors follow it
+
+// 2. Bootstrap
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/root';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/type';
+@import 'bootstrap/scss/images';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/tables';
+@import 'bootstrap/scss/forms';
+@import 'bootstrap/scss/buttons';
+@import 'bootstrap/scss/transitions';
+@import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/button-group';
+@import 'bootstrap/scss/nav';
+@import 'bootstrap/scss/navbar';
+@import 'bootstrap/scss/card';
+@import 'bootstrap/scss/accordion';
+@import 'bootstrap/scss/breadcrumb';
+@import 'bootstrap/scss/pagination';
+@import 'bootstrap/scss/badge';
+@import 'bootstrap/scss/alert';
+@import 'bootstrap/scss/progress';
+@import 'bootstrap/scss/list-group';
+@import 'bootstrap/scss/close';
+@import 'bootstrap/scss/toasts';
+@import 'bootstrap/scss/modal';
+@import 'bootstrap/scss/tooltip';
+@import 'bootstrap/scss/popover';
+@import 'bootstrap/scss/spinners';
+@import 'bootstrap/scss/offcanvas';
+@import 'bootstrap/scss/placeholders';
+@import 'bootstrap/scss/helpers';
+@import 'bootstrap/scss/utilities';
+@import 'bootstrap/scss/utilities/api';
+
+// 3. Template (all upstream partials except icon-pages)
+@import 'vendor/themes/generic';
+@import 'vendor/themes/general';
+@import 'vendor/themes/layouts/pc-sidebar';
+@import 'vendor/themes/layouts/pc-header';
+@import 'vendor/themes/layouts/pc-footer';
+@import 'vendor/themes/layouts/pc-common';
+@import 'vendor/themes/components/widget';
+@import 'vendor/themes/components/avtar';
+@import 'vendor/themes/components/badge';
+@import 'vendor/themes/components/button';
+@import 'vendor/themes/components/dropdown';
+@import 'vendor/themes/components/card';
+@import 'vendor/themes/components/progress';
+@import 'vendor/themes/components/table';
+@import 'vendor/themes/components/tabs';
+@import 'vendor/themes/components/form';
+@import 'vendor/themes/pages/authentication';
+
+// 4. Ours
+@import 'custom';
+@import 'dark';
